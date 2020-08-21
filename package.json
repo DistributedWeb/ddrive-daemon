@@ -1,0 +1,98 @@
+{
+  "name": "hyperdrive-daemon",
+  "version": "1.13.18",
+  "description": "A FUSE-mountable distributed filesystem, built on Hyperdrive",
+  "main": "index.js",
+  "bin": {
+    "hyperdrive": "./bin/run/run"
+  },
+  "scripts": {
+    "test": "standard && NODE_ENV=test tape test/*.js"
+  },
+  "files": [
+    "index.js",
+    "manager.js",
+    "scripts/",
+    "lib/",
+    "bin/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewosh/hyperdrive-daemon.git"
+  },
+  "keywords": [
+    "hyperdrive",
+    "fuse",
+    "daemon"
+  ],
+  "author": "Andrew Osheorff <andrewosh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewosh/hyperdrive-daemon/issues"
+  },
+  "homepage": "https://github.com/andrewosh/hyperdrive-daemon#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^0.5.1",
+    "@oclif/command": "^1.5.19",
+    "@oclif/config": "^1.14.0",
+    "@oclif/errors": "^1.2.2",
+    "@oclif/plugin-autocomplete": "^0.1.5",
+    "@oclif/plugin-help": "^2.2.3",
+    "buffer-json-encoding": "^1.0.2",
+    "corestore": "^5.0.0",
+    "corestore-swarm-networking": "^5.0.0",
+    "dat-encoding": "^5.0.1",
+    "end-of-stream": "^1.4.4",
+    "fs-extra": "^7.0.1",
+    "globby": "^11.0.0",
+    "google-protobuf": "^3.8.0",
+    "hypercore-cache": "^1.0.2",
+    "hypercore-crypto": "^2.0.2",
+    "hypercore-default-storage": "^1.0.0",
+    "hypercore-protocol": "^8.0.0",
+    "hyperdrive": "^10.8.10",
+    "hyperdrive-daemon-client": "^1.14.3",
+    "hyperdrive-schemas": "^1.9.0",
+    "level": "^6.0.0",
+    "level-mem": "^5.0.1",
+    "minimist": "^1.2.5",
+    "mkdirp": "^0.5.1",
+    "ora": "^4.0.3",
+    "peersockets": "^0.3.0",
+    "pino": "^5.12.6",
+    "pm2": "^4.2.1",
+    "process-top": "^1.1.0",
+    "pump": "^3.0.0",
+    "pumpify": "^2.0.1",
+    "random-access-memory": "^3.1.1",
+    "stream-collector": "^1.0.1",
+    "streamx": "^2.6.0",
+    "subleveldown": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "fuse-native": "^2.2.1",
+    "hyperdrive-fuse": "^1.2.12"
+  },
+  "devDependencies": {
+    "standard": "^12.0.1",
+    "tape": "^4.10.1",
+    "tmp-promise": "^2.0.1"
+  },
+  "standard": {
+    "ignore": [
+      "lib/fuse/index.js",
+      "bin/commands/*.js",
+      "bin/commands/debug/*.js",
+      "bin/commands/cleanup/*.js"
+    ]
+  },
+  "oclif": {
+    "commands": "./bin/commands",
+    "bin": "hyperdrive",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-autocomplete",
+      "hyperdrive-daemon-client"
+    ]
+  }
+}
