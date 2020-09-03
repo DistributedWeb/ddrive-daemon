@@ -4,8 +4,8 @@ const p = require('path')
 const mkdirp = require('mkdirp')
 const pm2 = require('pm2')
 
-const { HyperdriveClient } = require('hyperdrive-daemon-client')
-const constants = require('hyperdrive-daemon-client/lib/constants')
+const { HyperdriveClient } = require('ddrive-daemon-client')
+const constants = require('ddrive-daemon-client/lib/constants')
 
 const HyperdriveDaemon = require('.')
 
@@ -45,7 +45,7 @@ async function start (opts = {}) {
    * HACK
    * If 'pm2' detects a space in the 'script' path, it assumes the call is something like "python foo.py".
    * When that's the case, it transforms the call into `/bin/bash -c python foo.py`.
-   * This creates a problem for some hyperdrive apps because they may have spaces in their install paths.
+   * This creates a problem for some ddrive apps because they may have spaces in their install paths.
    * The resulting call ends up being `${interpreter} /bin/bash -c ${script}`, which is wrong.
    * (To add a little more complexity, it does *not* do this on Windows.)
    *
@@ -81,7 +81,7 @@ async function start (opts = {}) {
     args,
     interpreter,
     interpreterArgs,
-    name: opts.processName || 'hyperdrive',
+    name: opts.processName || 'ddrive',
     env: opts.env || process.env,
     output: opts.unstructuredLog,
     error: opts.structuredLog,
@@ -108,7 +108,7 @@ async function start (opts = {}) {
 
   function startForeground (description, opts) {
     const daemon = new HyperdriveDaemon({ ...opts, metadata: null, main: true })
-    process.title = 'hyperdrive'
+    process.title = 'ddrive'
     process.removeAllListeners('SIGINT')
     process.removeAllListeners('SIGTERM')
     daemon.start()
