@@ -50,7 +50,7 @@
     "ddatabase-crypto": "git://github.com/DistributedWeb/ddatabase-crypto.git#f918e93cab93590412848f0fb5ae87d721cf079c",
     "ddatabase-default-storage": "git://github.com/DistributedWeb/ddatabase-default-storage.git#98706c5f51fdaee7ae4a0e4b83a855baf17dcbcc",
     "ddatabase-protocol": "git://github.com/DistributedWeb/ddatabase-protocol.git#f1b19147e6fd5b5d956629d3060fcc3402773e26",
-    "ddrive": "git://github.com/DistributedWeb/ddrive.git#1eb5cb0699c9e80efcabf93e86457a57577bc97b",
+    "ddrive": "git://github.com/DistributedWeb/ddrive.git#ebd1bc9ad47888f8a8b26f0f2787796c4eb4ae41",
     "ddrive-daemon-client": "git://github.com/DistributedWeb/ddrive-daemon-client.git#bb2df8dfe20be7d5824a7cb5427e6be43acf013d",
     "ddrive-schemas": "git://github.com/DistributedWeb/ddrive-schemas.git#c39ebb6103163a56179cd3f48ced282f9edf15c5",
     "level": "^6.0.0",
@@ -71,7 +71,7 @@
   },
   "optionalDependencies": {
     "fuse-native": "^2.2.1",
-    "ddrive-fuse": "git://github.com/DistributedWeb/ddrive-fuse.git#e5683da786d9e29ebe6e6749c997fabe6b9c03e0"
+    "ddrive-fuse": "git://github.com/DistributedWeb/ddrive-fuse.git#5fd3a2c1ba322d070f127b5857d1fd7377c8bad1"
   },
   "devDependencies": {
     "standard": "^12.0.1",
