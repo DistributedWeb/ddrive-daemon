@@ -40,7 +40,7 @@
     "@oclif/plugin-help": "^2.2.3",
     "buffer-json-encoding": "^1.0.2",
     "call-me-maybe": "^1.0.1",
-    "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#03772a70db1a813fab16825366b97530a843c4c7",
+    "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#e761f8bdbcf074cad7b4fb6ad00f3d90be648e5a",
     "dwebstore-swarm-networking": "git://github.com/DistributedWeb/dwebstore-swarm-networking.git#a81ef8f4a14321ffb1fe4ae18a118b5813714130",
     "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
     "end-of-stream": "^1.4.4",
