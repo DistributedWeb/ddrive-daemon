@@ -1,6 +1,6 @@
 {
   "name": "ddrive-daemon",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A FUSE-mountable distributed filesystem, built on DDrive",
   "main": "index.js",
   "bin": {
@@ -41,7 +41,7 @@
     "buffer-json-encoding": "^1.0.2",
     "call-me-maybe": "^1.0.1",
     "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#e761f8bdbcf074cad7b4fb6ad00f3d90be648e5a",
-    "dwebstore-swarm-networking": "git://github.com/DistributedWeb/dwebstore-swarm-networking.git#a81ef8f4a14321ffb1fe4ae18a118b5813714130",
+    "dwebstore-swarm-networking": "git://github.com/DistributedWeb/dwebstore-swarm-networking.git#dd4350b759cef904f283e99e9d146dfa1c52073e",
     "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
     "end-of-stream": "^1.4.4",
     "fs-extra": "^7.0.1",
