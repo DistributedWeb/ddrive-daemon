@@ -1,7 +1,7 @@
 const tmp = require('tmp-promise')
-const dht = require('@hyperswarm/dht')
+const dht = require('@dwebswarm/dht')
 
-const { HyperdriveClient } = require('hyperdrive-daemon-client')
+const { HyperdriveClient } = require('ddrive-daemon-client')
 const HyperdriveDaemon = require('../..')
 
 const BASE_PORT = 4101

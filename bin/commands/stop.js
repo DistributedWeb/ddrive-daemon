@@ -1,12 +1,12 @@
 const ora = require('ora')
 const { Command, flags } = require('@oclif/command')
 
-const constants = require('hyperdrive-daemon-client/lib/constants')
+const constants = require('ddrive-daemon-client/lib/constants')
 const { stop } = require('../../manager')
 
 class StopCommand extends Command {
   static usage = 'stop'
-  static description = 'Stop the Hyperdrive daemon.'
+  static description = 'Stop the DDrive daemon.'
   static flags = {
     name: flags.string({
       description: 'The PM2 process name to stop.',
@@ -22,12 +22,12 @@ class StopCommand extends Command {
 
   async run () {
     const { flags } = this.parse(StopCommand)
-    const spinner = ora('Stopping the Hyperdrive daemon (might take a while to unannounce)...').start()
+    const spinner = ora('Stopping the DDrive daemon (might take a while to unannounce)...').start()
     try {
       await stop(flags.name, flags.port)
-      spinner.succeed('The Hyperdrive daemon has been stopped.')
+      spinner.succeed('The DDrive daemon has been stopped.')
     } catch (err) {
-      spinner.fail('Could not stop the Hyperdrive daemon:')
+      spinner.fail('Could not stop the DDrive daemon:')
       console.error(err)
       this.exit(1)
     }

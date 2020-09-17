@@ -1,12 +1,12 @@
 const ora = require('ora')
 const { Command, flags } = require('@oclif/command')
 
-const constants = require('hyperdrive-daemon-client/lib/constants')
+const constants = require('ddrive-daemon-client/lib/constants')
 const { start } = require('../../manager')
 
 class StartCommand extends Command {
   static usage = 'start'
-  static description = 'Start the Hyperdrive daemon.'
+  static description = 'Start the DDrive daemon.'
   static flags = {
     port: flags.integer({
       description: 'The gRPC port that the daemon will bind to.',
@@ -49,10 +49,10 @@ class StartCommand extends Command {
     const self = this
     const { flags } = this.parse(StartCommand)
 
-    const spinner = ora('Starting the Hyperdrive daemon...').start()
+    const spinner = ora('Starting the DDrive daemon...').start()
     try {
       const { opts } = await start(flags)
-      spinner.succeed(`Hyperdrive daemon listening on ${opts.endpoint}`)
+      spinner.succeed(`DDrive daemon listening on ${opts.endpoint}`)
     } catch (err) {
       spinner.fail(err)
       if (!flags.foreground) this.exit(1)

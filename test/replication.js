@@ -92,12 +92,12 @@ test('can download a directory between daemons', async t => {
     // Since there has not been a content read yet, the stats will not report the latest content length.
     t.same(stats[0].content.totalBlocks, 0)
 
-    // TODO: Uncomment after hypercore bug fix.
+    // TODO: Uncomment after ddatabase bug fix.
     // t.same(stats[0].content.downloadedBlocks, 0)
 
     var fileStats = await drive2.fileStats('/a/1')
 
-    // TODO: Uncomment after hypercore bug fix.
+    // TODO: Uncomment after ddatabase bug fix.
     // t.same(fileStats.get('/a/1').downloadedBlocks, 0)
 
     await drive2.download('a')
@@ -139,7 +139,7 @@ test('can cancel an active download', async t => {
     await writeFile(drive1, '/a/2', 50)
 
     var fileStats = await drive2.fileStats('/a/1')
-    // TODO: Uncomment after hypercore bug fix
+    // TODO: Uncomment after ddatabase bug fix
     // t.same(fileStats.downloadedBlocks, 0)
 
     const handle = await drive2.download('a')
@@ -698,13 +698,13 @@ test('can get peer info for one discovery key', async t => {
   t.end()
 })
 
-// This will hang until we add timeouts to the hyperdrive reads.
+// This will hang until we add timeouts to the ddrive reads.
 test('can continue getting drive info after remote content is cleared (no longer available)', async t => {
   const { clients, cleanup, daemons } = await create(2)
   const firstClient = clients[0]
   const secondClient = clients[1]
 
-  const localStore = daemons[0].corestore
+  const localStore = daemons[0].dwebstore
 
   try {
     const drive = await firstClient.drive.get()

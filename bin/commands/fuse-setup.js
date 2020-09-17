@@ -5,8 +5,8 @@ const fs = require('fs').promises
 const { spawn } = require('child_process')
 const { Command, flags } = require('@oclif/command')
 
-const { HyperdriveClient } = require('hyperdrive-daemon-client')
-const constants = require('hyperdrive-daemon-client/lib/constants')
+const { HyperdriveClient } = require('ddrive-daemon-client')
+const constants = require('ddrive-daemon-client/lib/constants')
 
 const isPosix = process.platform !== 'win32'
 
@@ -32,7 +32,7 @@ class SetupCommand extends Command {
   }
   async run () {
     try {
-      var hyperfuse = require('hyperdrive-fuse')
+      var hyperfuse = require('ddrive-fuse')
     } catch (err) {}
 
     if (!hyperfuse) {
@@ -46,8 +46,8 @@ class SetupCommand extends Command {
     try {
       await configureFuse()
       console.log('FUSE successfully configured:')
-      console.log('  * Your root drive will be mounted at ~/Hyperdrive when the daemon is next started.')
-      console.log('  * If your mountpoint ever becomes unresponsive, try running `hyperdrive force-unmount`.')
+      console.log('  * Your root drive will be mounted at ~/DDrive when the daemon is next started.')
+      console.log('  * If your mountpoint ever becomes unresponsive, try running `ddrive force-unmount`.')
     } catch (err) {
       console.error('Could not configure the FUSE module:')
       console.error(err)
@@ -104,7 +104,7 @@ class SetupCommand extends Command {
           try {
             await fs.unlink(constants.mountpoint)
           } catch (err) {
-            // If Hyperdrive is a directory, this will error, but it doesn't matter.
+            // If DDrive is a directory, this will error, but it doesn't matter.
           }
         }
       } catch (err) {
