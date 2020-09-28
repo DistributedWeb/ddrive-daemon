@@ -41,7 +41,7 @@
     "buffer-json-encoding": "^1.0.2",
     "call-me-maybe": "^1.0.1",
     "dwebstore": "git://github.com/DistributedWeb/dwebstore.git#07dcea14f69926a77eac535e2a5f05b2676c80ae",
-    "dwebstore-swarm-networking": "git://github.com/DistributedWeb/dwebstore-swarm-networking.git#19ea4fad9ddedb9e2aeb37d5b30adfa654d6f4a9",
+    "dwebstore-swarm-networking": "git://github.com/DistributedWeb/dwebstore-swarm-networking.git#aa485837e9d10df2f2ccb325c99609ec4eb51505",
     "dwebx-encoding": "git://github.com/DistributedWeb/dwebx-encoding.git#adbab1965b1152c3a7252ca01807e9744c713398",
     "end-of-stream": "^1.4.4",
     "fs-extra": "^7.0.1",
