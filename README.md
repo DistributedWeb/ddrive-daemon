@@ -1,14 +1,14 @@
 # ddrive-daemon
-[![Build Status](https://travis-ci.com/ddatabase-protocol/ddrive-daemon.svg?branch=master)](https://travis-ci.com/github/ddatabase-protocol/ddrive-daemon)
+[![Build Status](https://travis-ci.com/distributedweb/ddrive-daemon.svg?branch=master)](https://travis-ci.com/github/distributedweb/ddrive-daemon)
 
 The DDrive daemon helps you create, share, and manage Hyperdrives through a persistent process running on your computer, without having to deal with storage management or networking configuration.
 
-It provides both a gRPC API (see [`ddrive-daemon-client`](https://github.com/andrewosh/ddrive-daemon-client)) for interacting with remote drives, and an optional FUSE interface for mounting drives as directories in your local filesystem.
+It provides both a gRPC API (see [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client)) for interacting with remote drives, and an optional FUSE interface for mounting drives as directories in your local filesystem.
 
 #### Features
-* __Hyperswarm Networking__: Hyperdrives are announced and discovered using the [DWebswarm DHT](https://github.com/dwebswarm/dwebswarm).
+* __Hyperswarm Networking__: Hyperdrives are announced and discovered using the [DWebswarm DHT](https://github.com/distributedweb/dwebswarm).
 * __Easy Storage__: All your Hyperdrives are stored in a single spot, the `~/.ddrive/storage` directory.
-* __gRPC API__: The daemon exposes an API for managing remote Hyperdrives over gRPC. We currently have a [NodeJS client](https://github.com/andrewosh/ddrive-daemon-client).
+* __gRPC API__: The daemon exposes an API for managing remote Hyperdrives over gRPC. We currently have a [NodeJS client](https://github.com/distributedweb/ddrive-daemon-client).
 * __FUSE support__: If you're using Linux or Mac, you can mount Hyperdrives as directories and work with them using standard filesystem syscalls.
 * __CLI Tools__: The `ddrive` CLI supports a handful of commands for managing the daemon, creating/sharing drives, getting statistics, and augmenting the FUSE interface to support DDrive-specific functions (like mounts).
 * __Persistence__: Networking configuration info is stored in a [Level](https://github.com/level/level) instance, so your drives will reconnect to the network automatically when the daemon's restarted.
@@ -16,8 +16,6 @@ It provides both a gRPC API (see [`ddrive-daemon-client`](https://github.com/and
 
 ## Installation
 *Note: The daemon CLI currently requires Node 12 or greater*
-
-__Temporary Note: We're working out a [segfault issue](https://github.com/ddatabase-protocol/ddrive-daemon/issues/47) that's causing the daemon to fail with Node 14. If you're on 14, check that issue for updates, but for now try using 12 or 13__.
 
 ```
 npm i ddrive-daemon -g
@@ -60,7 +58,7 @@ The DDrive daemon is running:
 ```
 
 ## API
-The daemon exposes a gRPC API for interacting with remote Hyperdrives. [`ddrive-daemon-client`](https://github.com/andrewosh/ddrive-daemon-client) is a Node client that you can use to interact with the API. If you'd like to write a client in another language, check out the schema definitions in [`ddrive-schemas`](https://github.com/andrewosh/ddrive-schemas)
+The daemon exposes a gRPC API for interacting with remote Hyperdrives. [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client) is a Node client that you can use to interact with the API. If you'd like to write a client in another language, check out the schema definitions in [`ddrive-schemas`](https://github.com/distributedweb/ddrive-schemas)
 
 ## CLI
 
