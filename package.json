@@ -1,6 +1,6 @@
 {
   "name": "ddrive-daemon",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A FUSE-mountable distributed filesystem, built on DDrive",
   "main": "index.js",
   "bin": {
