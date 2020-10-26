@@ -6,7 +6,7 @@ The DDrive daemon helps you create, share, and manage Hyperdrives through a pers
 It provides both a gRPC API (see [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client)) for interacting with remote drives, and an optional FUSE interface for mounting drives as directories in your local filesystem.
 
 #### Features
-* __Hyperswarm Networking__: Hyperdrives are announced and discovered using the [DWebswarm DHT](https://github.com/distributedweb/dwebswarm).
+* __dwebswarm Networking__: Hyperdrives are announced and discovered using the [DWebswarm DHT](https://github.com/distributedweb/dwebswarm).
 * __Easy Storage__: All your Hyperdrives are stored in a single spot, the `~/.ddrive/storage` directory.
 * __gRPC API__: The daemon exposes an API for managing remote Hyperdrives over gRPC. We currently have a [NodeJS client](https://github.com/distributedweb/ddrive-daemon-client).
 * __FUSE support__: If you're using Linux or Mac, you can mount Hyperdrives as directories and work with them using standard filesystem syscalls.
