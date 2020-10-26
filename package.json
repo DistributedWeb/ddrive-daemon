@@ -1,7 +1,7 @@
 {
   "name": "ddrive-daemon",
   "version": "2.0.1",
-  "description": "A FUSE-mountable distributed filesystem, built on DDrive",
+  "description": "Daemon for creating, seeding and managing dDrives.",
   "main": "index.js",
   "bin": {
     "ddrive": "./bin/run/run"
@@ -18,19 +18,19 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewosh/ddrive-daemon.git"
+    "url": "git+https://github.com/distributedweb/ddrive-daemon.git"
   },
   "keywords": [
     "ddrive",
     "fuse",
     "daemon"
   ],
-  "author": "Andrew Osheorff <andrewosh@gmail.com>",
+  "author": "Peeps Labs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/andrewosh/ddrive-daemon/issues"
+    "url": "https://github.com/distributedweb/ddrive-daemon/issues"
   },
-  "homepage": "https://github.com/andrewosh/ddrive-daemon#readme",
+  "homepage": "https://dwebx.org",
   "dependencies": {
     "@grpc/grpc-js": "^0.5.1",
     "@oclif/command": "^1.5.19",
