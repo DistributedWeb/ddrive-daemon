@@ -1,18 +1,18 @@
 # ddrive-daemon
 [![Build Status](https://travis-ci.com/distributedweb/ddrive-daemon.svg?branch=master)](https://travis-ci.com/github/distributedweb/ddrive-daemon)
 
-The DDrive daemon helps you create, share, and manage Hyperdrives through a persistent process running on your computer, without having to deal with storage management or networking configuration.
+The dDrive daemon helps you create, share, and manage dDrives through a persistent process running on your computer, without having to deal with storage management or networking configuration.
 
 It provides both a gRPC API (see [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client)) for interacting with remote drives, and an optional FUSE interface for mounting drives as directories in your local filesystem.
 
 #### Features
-* __dwebswarm Networking__: Hyperdrives are announced and discovered using the [DWebswarm DHT](https://github.com/distributedweb/dwebswarm).
-* __Easy Storage__: All your Hyperdrives are stored in a single spot, the `~/.ddrive/storage` directory.
-* __gRPC API__: The daemon exposes an API for managing remote Hyperdrives over gRPC. We currently have a [NodeJS client](https://github.com/distributedweb/ddrive-daemon-client).
+* __dwebswarm Networking__: dDrives are announced and discovered using the [dWeb DHT](https://github.com/distributedweb/dwebswarm-dht).
+* __Easy Storage__: All your dDrives are stored in a single spot, the `~/.ddrive/storage` directory.
+* __gRPC API__: The daemon exposes an API for managing remote dDrives over gRPC. We currently have a [NodeJS client](https://github.com/distributedweb/ddrive-daemon-client).
 * __FUSE support__: If you're using Linux or Mac, you can mount Hyperdrives as directories and work with them using standard filesystem syscalls.
-* __CLI Tools__: The `ddrive` CLI supports a handful of commands for managing the daemon, creating/sharing drives, getting statistics, and augmenting the FUSE interface to support DDrive-specific functions (like mounts).
+* __CLI Tools__: The `ddrive` CLI supports a handful of commands for managing the daemon, creating/sharing drives, getting statistics, and augmenting the FUSE interface to support dDrive-specific functions (like mounts).
 * __Persistence__: Networking configuration info is stored in a [Level](https://github.com/level/level) instance, so your drives will reconnect to the network automatically when the daemon's restarted.
-* __PM2 Process Management__: We use [PM2](https://github.com/Unitech/pm2) to manage the daemon process. Separately installing the PM2 CLI gives you access to extra monitoring, and support for installing the DDrive daemon as a system daemon
+* __PM2 Process Management__: We use [PM2](https://github.com/Unitech/pm2) to manage the daemon process. Separately installing the PM2 CLI gives you access to extra monitoring, and support for installing the dDrive daemon as a system daemon
 
 ## Installation
 *Note: The daemon CLI currently requires Node 12 or greater*
@@ -23,7 +23,7 @@ npm i ddrive-daemon -g
 
 ### Starting the daemon
 
-After installing/configuring, you'll need to start the daemon before running any other commands. To do this, first pick a storage directory for your mounted Hyperdrives. By default, the daemon will use `~/.ddrive/storage`.
+After installing/configuring, you'll need to start the daemon before running any other commands. To do this, first pick a storage directory for your mounted dDrives. By default, the daemon will use `~/.ddrive/storage`.
 
 ```
 ❯ ddrive start
@@ -33,7 +33,7 @@ Daemon started at http://localhost:3101
 If you want to stop the daemon, you can run:
 ```
 ❯ ddrive stop
-The DDrive daemon has been stopped.
+The dDrive daemon has been stopped.
 ```
 
 ### Checking the status
@@ -41,7 +41,7 @@ The DDrive daemon has been stopped.
 After it's been started, you can check if the daemon's running (and get lots of useful information) with the `status` command:
 ```
 ❯ ddrive status
-The DDrive daemon is running:
+The dDrive daemon is running:
 
   API Version:             0
   Daemon Version:          1.7.15
@@ -58,18 +58,18 @@ The DDrive daemon is running:
 ```
 
 ## API
-The daemon exposes a gRPC API for interacting with remote Hyperdrives. [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client) is a Node client that you can use to interact with the API. If you'd like to write a client in another language, check out the schema definitions in [`ddrive-schemas`](https://github.com/distributedweb/ddrive-schemas)
+The daemon exposes a gRPC API for interacting with remote dDrives. [`ddrive-daemon-client`](https://github.com/distributedweb/ddrive-daemon-client) is a Node client that you can use to interact with the API. If you'd like to write a client in another language, check out the schema definitions in [`ddrive-schemas`](https://github.com/distributedweb/ddrive-schemas)
 
 ## CLI
 
-Hypermount provides an gRPC interface for mounting, unmounting, and providing status information about all current mounts. There's also a bundled CLI tool which wraps the gRPC API and provides the following commands:
+dDriveMount provides an gRPC interface for mounting, unmounting, and providing status information about all current mounts. There's also a bundled CLI tool which wraps the gRPC API and provides the following commands:
 
 ### Basic Commands 
 #### `ddrive fuse-setup`
 Performs a one-time configuration step that installs FUSE. This command will prompt you for `sudo`.
 
 #### `ddrive start`
-Start the DDrive daemon.
+Start the dDrive daemon.
 
 Options include:
 ```
@@ -88,10 +88,10 @@ Gives the current status of the daemon, as well as version/networking info, and 
 Stop the daemon.
 
 ### Importing/Exporting
-If you're on a system that doesn't support FUSE, or you just don't want to bother with it, the CLI provides the `import` and `export` commands for moving files in and out of Hyperdrives.
+If you're on a system that doesn't support FUSE, or you just don't want to bother with it, the CLI provides the `import` and `export` commands for moving files in and out of dDrives.
 
 #### Importing
-To import a directory into a new DDrive, you can run `import` without specifying a key:
+To import a directory into a new dDrive, you can run `import` without specifying a key:
 ```
 ❯ ddrive import ./path/to/directory
 Importing path/to/directory into aae4f36bd0b1a7a8bf68aa0bdd0b93997fd8ff053f4a3e816cb629210aa17737 (Ctrl+c to exit)...
@@ -126,14 +126,14 @@ Delete all read-only drives from disk. This will clear up storage, and makes it 
 This command *must not* be run while the daemon is running. Since it deletes data, it's intentionally verbose!
 
 ## FUSE
-Using FUSE, the DDrive daemon lets your mount Hyperdrives as normal filesystem directories on both OSX and Linux. To use FUSE, you need to run the `setup` command before you start the daemon the first time:
+Using FUSE, the dDrive daemon lets your mount Hyperdrives as normal filesystem directories on both OSX and Linux. To use FUSE, you need to run the `setup` command before you start the daemon the first time:
 
 ### Setup
 The setup command installs native, prebuilt FUSE bindings. We currently only provide bindings for OSX and Linux. The setup step is the only part of installation that requires `sudo` access:
 ```
 ❯ ddrive fuse-setup
 Configuring FUSE...
-[sudo] password for andrewosh:
+[sudo] password for distributedweb:
 Successfully configured FUSE!
 ```
 
@@ -173,7 +173,7 @@ Mounted a drive with the following info:
   Seeding:    true
 ```
 
-*__Note:__ Unless you use the `no-seed` flag, all new drives will be automatically "seeded," meaning they'll be announced on the DWebswarm DHT. In the above example, this could be done with `ddrive create ~/DDrive/videos --no-seed`. To announce it later, you can run `ddrive seed ~/DDrive/videos`.*
+*__Note:__ Unless you use the `no-seed` flag, all new drives will be automatically "seeded," meaning they'll be announced on the dWeb DHT. In the above example, this could be done with `ddrive create ~/DDrive/videos --no-seed`. To announce it later, you can run `ddrive seed ~/DDrive/videos`.*
 
 Equivalently:
 ```
@@ -189,7 +189,7 @@ Mounted subdrives are seeded (announced on the DHT) by default, but if you've ch
 Seeding the drive mounted at ~/DDrive/Videos
 ```
 
-Seeding will start announcing the drive's discovery key on the dwebswarm DHT, and this setting is persistent -- the drive will be reannounced when the daemon is restarted.
+Seeding will start announcing the drive's discovery key on the dWeb DHT, and this setting is persistent -- the drive will be reannounced when the daemon is restarted.
 
 After seeding, another user can either:
 1. Mount the same subdrive by key within their own root drive
@@ -246,7 +246,7 @@ Options include:
 ```
 
 #### `ddrive mount <path> <key>`
-Mount an existing DDrive into your root drive at path `path`.
+Mount an existing dDrive into your root drive at path `path`.
 
 If you don't specify a `key`, the `mount` command will behave identically to `ddrive create`.
 
@@ -291,7 +291,7 @@ Stop advertising a previously-published subdrive on the network.
 
 - `path` must be a subdirectory of `~/DDrive/`. If `path` is not specified, the command will use the enclosing mount of your current working directory.
 
-*Note: This command will currently not delete the DDrive from disk. Support for this will be added soon.*
+*Note: This command will currently not delete the dDrive from disk. Support for this will be added soon.*
 
 #### `ddrive stats <path>`
 Display networking statistics for a drive. This is a shorthand for getting a drive's key with `ddrive info` and `cat`ing `~/DDrive/Network/Stats/<drive-key>/networking.json`.
